@@ -1,5 +1,33 @@
 <%- include('../partials/document',{title}) %>
 </head>
 <body>
-<h1>Vote</h1>
+<h1>Votes</h1>
+<% if (typeof votes !="undefined") { %>
+ <% votes.forEach((vote, i)=>{  %>
+    <div>
+        <h2><%=  vote.title %></h2>
+
+        <div class="options">
+ <% JSON.parse(vote.options).forEach((option, choice)=>{ let index=0; %>
+    <%- include('../partials/VoteOption',{
+        optionTitle:option,
+        optionProgress:JSON.parse( vote.votes || '[]').map((a,b,c)=>{
+            const len = c.length;
+          if (a.choice == choice) {
+            index ++
+            const ans = String((index / len) * 100).slice(0,4) ;
+            return ans
+        }
+        return 0
+        }).find((k)=> k >=0),
+        voted:JSON.parse( vote.votes || '[]').filter(v=> v.voterId == userId && choice == v.choice)[0],
+        optionId:vote.uuid+"_"+choice
+    }) %>
+ <% }) %>
+          
+        </div>
+    </div>
+ <% }) %>
+<% } %>
+<%- include('../partials/logout') %>
 <%- include('../partials/end') %>
