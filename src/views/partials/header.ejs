@@ -1,0 +1,16 @@
+<div>
+  <header class="main-header">
+    <img src="/assets/logo2.png" class="logo-img"/>
+  <div class="side">
+    <div class="avatar"><%= initial %></div>
+    <%- include('../partials/logout') %>
+  </div>
+</header>
+
+<nav class="navigation">
+  <a href="/vote">Vote</a>
+  <% if(isAdmin){ %>
+    <a href="/admin">Admin</a>  
+  <% } %>
+</nav>
+</div>

@@ -1,0 +1,30 @@
+<%- include('../../partials/document',{title}) %>
+<link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+<%- include('../../partials/header',{initial, isAdmin}) %>
+<div class="admin-container">
+    <h1>Ask A Question</h1>
+
+    <form action="/admin/create-vote" method="POST">
+        <input type="text" name="title" id="title" placeholder="Title">
+        <input type="datetime-local" name="validThrough" id="validThrough">
+        <div class="options-field">
+            <h3 class="option-header">
+                <span>Options</span>
+                <i class="fa fa-plus"></i>
+            </h3>
+            <p class="error-msg error"></p>
+
+            <div class="options-inputs">
+                <input type="text" name="field-1" placeholder="Option 1">
+            </div>
+
+        </div>
+
+        <button class="submit-btn" type="submit">Create Vote</button>
+    </form>
+</div>
+
+<script src="/scripts/admin.js"></script>
+<%- include('../../partials/end') %>

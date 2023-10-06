@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Share Tech", sans-serif;
+  }
+
+
+.logout-form button{
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.options{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.option{
+    width: 70vw;
+    padding: 15px;
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid gray;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #3c3c3c;
+}
+
+.option .option-progress{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 0%;
+    left: 0;
+    height: 100%;
+    background: #0000004d;
+}
+
+.option.choose{
+    color: #067e06eb;
+}
+
+.option.choose .option-progress{
+    background: #0dc20d4d;
+}
+
+
+
+/* header */
+
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 5%;
+}
+
+.main-header .logo-img{
+    height: 40px;
+    object-fit: cover;
+    filter: invert(1);
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: #000;
+    border-radius: 100px;
+}
+
+.main-header .side{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+.vote-option{
+    font-size: 4rem;
+}
+
+.vote-container{
+    padding: 30px;
+    margin: auto;
+}
+
+.asker{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+.vote-expired{
+    opacity: .7;
+    /* pointer-events: none; */
+}
+
+.avatar.red{
+    background: red;
+}
+
+
+.options-inner{
+    margin:auto;
+}
+
+.navigation{
+    display: flex;
+    background-color: #cdcdcd8c;
+    margin: 2px 5%;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    gap:30px ;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.navigation a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: inherit;
+}
+
+.vote-actions{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.vote-actions button{
+    cursor: pointer;
+    padding: 13px;
+    border: none;
+    border-radius: 100px;
+}
+
+
+.vote-actions button.del{
+    background-color: red;
+    color:white
+}

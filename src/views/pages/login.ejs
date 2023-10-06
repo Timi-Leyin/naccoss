@@ -1,5 +1,60 @@
 <%- include('../partials/document',{title}) %>
+<link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
-<h1>Login</h1>
+
+    <div class="container">
+        <div class="containers">
+          <div class="left-container">
+            <h1 class="logo">
+        <img src="./assets/logo2.png" width="130px" alt="">
+  
+            </h1>
+            <img src="assets/nacos.gif" class="gif-bg" width="100%" alt="">
+            <div class="txts">
+            </div>
+            <div class="btns-nav">
+              <button class="left btn"><i class="fa fa-arrow-left"></i></button>
+              <button class="nav-one"><i class="fa fa-circle"></i></button>
+              <button class="nav-two"><i class="fa fa-circle"></i></button>
+              <button class="nav-three"><i class="fa fa-circle"></i></button>
+              <button class="right btn"><i class="fa fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <form action="/login" method="POST" class="right-container">
+            <div class="con">
+              <h1 class="welcome">Welcome back!</h1>
+              <p class="sub-text">The Largest and Most Organised Student Body in Africa</p>
+                
+              <div class="inputs">
+                <% if (typeof error != "undefined") { %>
+                    <p class="error"><%= error %></p>
+                   <% } %>
+                <div class="email-input">
+                  <i class="icon fa fa-user"></i>
+                  <input type="text" placeholder="R2022/000/000" name="matric" required id="" />
+                </div>
+                <div class="password-input">
+                  <i class="icon fa fa-lock"></i>
+                  <input
+                    type="password"
+                    placeholder="********"
+                    required
+                    id=""
+                    name="password"
+                    minlength="8"
+                    class="password"
+                  />
+                  <i class="passwordToggle icon fa fa-eye"></i>
+                </div>
+               
+                <button type="submit" class="btn-login">Sign In</button>
+                <p class="copy-right">© 2022 All RIGHTS RESERVED</p>
+              </div>
+            </div>
+        </form>
+        </div>
+      </div>
+
+      <script src="scripts/login.js"></script>
 <%- include('../partials/end') %>

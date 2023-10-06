@@ -1,0 +1,7 @@
+<form method="POST" action=<%= "/vote/count/"+ optionId %>>
+    <button class="option <%= voted && "choose" %>" type="submit">
+        <span style=<%= "width:"+optionProgress %> class="option-progress"></span>
+        <h5 class="option-name"><%= optionTitle %></h5>
+        <h5 class="option-ratio"><%= optionProgress %></h>
+        </button>    
+</form>

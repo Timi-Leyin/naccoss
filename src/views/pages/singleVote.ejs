@@ -1,0 +1,34 @@
+<%- include('../partials/document',{title, vote}) %>
+</head>
+<body>
+<%- include('../partials/header',{isAdmin}) %>
+<% if (typeof vote !="undefined") { %>
+        
+    <div class='vote-container <%=vote.validThrough.getTime() < new Date() ? "vote-expired":"" %>'>
+        <!-- <div class='asker' >
+            <div class="avatar red">SO</div>
+            <h3>Sopekan Adeolu asked ... </h3>
+        </div> -->
+        <h2 class="vote-option"><%=  vote.title %></h2>
+
+        <% if (vote.validThrough.getTime() < new Date()){ %>
+            <p>Vote Ended .. <%= getWinner(vote) %> </p>
+            <% } %>
+                <div class="options-inner">
+                <% JSON.parse(vote.options).forEach((option, choice)=>{ %>
+            <div class="options">
+    <%- include('../partials/VoteOption',{
+        optionTitle:option,
+        optionProgress:getChoicePercentage(JSON.parse( vote.votes || '[]'), choice).percentage +"%",
+        voted:JSON.parse( vote.votes || '[]').filter(v=> v.voterId == userId && choice == v.choice)[0],
+        optionId:vote.uuid+"_"+choice
+    }) %>
+    <p><%= getChoicePercentage(JSON.parse( vote.votes || '[]'), choice).total %> Votes</p>
+</div>
+    <% }) %>
+</div>
+          
+    </div>
+   
+<% } %>
+<%- include('../partials/end') %>
